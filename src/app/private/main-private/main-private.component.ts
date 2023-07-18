@@ -18,16 +18,20 @@ export class MainPrivateComponent implements OnInit {
       group: false
     },
     {
-      title: 'Mes liens',
-      icon: 'link',
-      link: '/links',
-      group: false
-    },
-    {
-      title: 'Statistiques',
-      icon: 'bar-chart-2-outline',
-      link: '/statistics',
-      group: false
+      title: 'Boîte à outils',
+      icon: 'edit-2-outline',
+      children: [
+        {
+          title: 'Articles',
+          icon: 'book-open-outline',
+          link: '/links',
+        },
+        {
+          title: 'Catégories',
+          icon: 'bookmark-outline',
+          link: '/categories',
+        }
+      ]
     }
   ];
   profileItems = [

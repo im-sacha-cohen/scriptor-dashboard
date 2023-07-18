@@ -11,6 +11,15 @@ button {
         }
     }
 
+    &.blue {
+        background: $blue !important;
+
+        &:disabled {
+            background: $blue !important;
+            opacity: 0.5;
+        }
+    }
+
     &:disabled {
         opacity: 0.5;
         color: black !important;

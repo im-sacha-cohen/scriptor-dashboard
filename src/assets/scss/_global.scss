@@ -1,12 +1,10 @@
 * {
     box-sizing: border-box !important;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 nb-layout-column {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-top: 100px !important;
 }
 
 .flex-column {

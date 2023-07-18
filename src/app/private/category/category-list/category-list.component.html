@@ -1,0 +1,19 @@
+<div class="title-container">
+    <h1>Catégories <small *ngIf="categories">({{ categories.length }})</small></h1>
+    <div>
+        <button class="blue" nbButton status="success" size="small" routerLink="/link/new">
+            <i class="fa-solid fa-pen"></i>
+            Nouvelle
+        </button>
+    </div>
+</div>
+<nb-card *ngIf="!showSpinner" [nbSpinner]="showSpinner">
+    <nb-card-body>
+        <app-tree-grid
+        *ngIf="categories.length >0"
+            [customColumn]="customColumn"
+            [defaultColumns]="defaultColumns"
+            [data]="categories"
+        ></app-tree-grid>
+    </nb-card-body>
+</nb-card>

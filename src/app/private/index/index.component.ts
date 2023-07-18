@@ -34,11 +34,11 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.firstName = this.authService.getFirstName();
 
-    this.getLinkCreatedToday();
+    /*this.getLinkCreatedToday();
     this.getLinkCreatedYesterday();
 
     this.getClickCumulatedToday();
-    this.getClickCumulatedYesterday();
+    this.getClickCumulatedYesterday();*/
   }
 
   private getLinkCreatedToday(): void {
