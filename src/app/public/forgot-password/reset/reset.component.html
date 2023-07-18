@@ -1,0 +1,38 @@
+<h1>Créez votre nouveau mot de passe</h1>
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="formNewPassword" (ngSubmit)="onSubmit()">
+            <div class="flex-row space-between">
+                <div class="flex-column">
+                    <label for="password">Mot de passe</label>
+                    <input id="password" nbInput status="basic" formControlName="password" type="password" placeholder="*******">
+                </div>
+                <div class="flex-column">
+                    <label for="passwordConfirm">Confirmation de mot de passe</label>
+                    <input id="passwordConfirm" nbInput status="basic" formControlName="passwordConfirm" type="password" placeholder="*******">
+                </div>
+            </div>
+            <nb-alert *ngIf="showAlert" status="{{ alertType }}" class="{{ alertType }}">
+                {{ alertMessage }}
+            </nb-alert>
+            <div class="flex-row space-between">
+                <a routerLink="/login">
+                    <nb-icon icon="arrow-back-outline"></nb-icon>
+                    Retour à la connexion
+                </a>
+                <button
+                    class="float-right"
+                    type="submit"
+                    nbButton status="basic"
+                    (click)="onSubmit()"
+                    [disabled]="this.formNewPassword.invalid || showSpinner"
+                    [nbSpinner]="showSpinner"
+                    nbSpinnerStatus="basic"
+                >
+                    <nb-icon icon="log-in"></nb-icon>
+                    Réinitialiser mon mot de passe
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+  </nb-card>

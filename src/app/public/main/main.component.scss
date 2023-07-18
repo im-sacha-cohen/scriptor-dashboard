@@ -1,0 +1,22 @@
+@import '../../../assets/scss/variables';
+
+nb-layout-column {
+    background: $blue-gradient;
+
+    img {
+        height: auto;
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    nb-card {
+        width: 500px;
+    
+        nb-card-body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

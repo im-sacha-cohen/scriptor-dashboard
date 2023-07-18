@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>Êtes-vous sûr de vouloir supprimer cet élément ?</nb-card-header>
+    <nb-card-body>
+        <span [innerHTML]="message"></span>
+    </nb-card-body>
+    <nb-card-footer class="flex-row space-between">
+        <button nbButton status="basic" size="small" (click)="close()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Annuler
+          </button>
+        <button [nbSpinner]="showSpinner" [disabled]="showSpinner" nbButton status="danger" size="small" (click)="deleteItem()">
+            <i class="fa-solid fa-trash"></i>
+            Supprimer
+          </button>
+    </nb-card-footer>
+</nb-card>

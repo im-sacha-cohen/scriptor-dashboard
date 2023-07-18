@@ -1,0 +1,59 @@
+<h1>Inscription</h1>
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="formSignup" (ngSubmit)="onSubmit()">
+            <div class="flex-row space-between">
+                <div class="flex-column">
+                    <label for="firstName">Prénom *</label>
+                    <input id="firstName" nbInput status="basic" formControlName="firstName" type="text" placeholder="Ex: Jon">
+                </div>
+                <div class="flex-column">
+                    <label for="lastName">Nom *</label>
+                    <input id="lastName" nbInput status="basic" formControlName="lastName" type="text" placeholder="Ex: DOE">
+                </div>
+            </div>
+            <div class="flex-row space-between">
+                <div class="flex-column">
+                    <label for="email">Adresse mail *</label>
+                    <input id="email" nbInput status="basic" formControlName="email" type="email" placeholder="Ex: jon@doe.com">
+                </div>
+                <div class="flex-column">
+                    <label for="domainName">
+                        Votre nom de domaine *
+                        <nb-icon icon="alert-circle-outline" nbTooltip="Nom de domaine à utiliser pour la génération de liens. Pour utiliser un nom de domaine personnalisé, vous devez nous contacter pour que nous procédions aux configurations réseaux nécessaires."></nb-icon>
+                    </label>
+                    <input id="domainName" nbInput status="basic" formControlName="domainName" type="url" placeholder="Ex : https://link.Scriptor.fr">
+                </div>
+            </div>
+            <div class="flex-row space-between">
+                <div class="flex-column">
+                    <label for="password">Mot de passe *</label>
+                    <input id="password" nbInput status="basic" formControlName="password" type="password" placeholder="*******">
+                </div>
+                <div class="flex-column">
+                    <label for="passwordConfirm">Confirmation de mot de passe *</label>
+                    <input id="passwordConfirm" nbInput status="basic" formControlName="passwordConfirm" type="password" placeholder="*******">
+                </div>
+            </div>
+            <div class="flex-column">
+                <label for="facebookPage">URL de votre page Facebook *</label>
+                <input id="facebookPage" nbInput status="basic" formControlName="facebookPage" type="url" placeholder="Ex : https://facebook.com/jon-doe">
+            </div>
+            <nb-alert *ngIf="showSuccess" status="success">
+                Votre compte a bien été créé !<br/>
+                Nous venons d'envoyer une demande de confirmation de compte par mail.<br/>
+                Si vous ne la recevez, vérifiez vos spams.
+            </nb-alert>
+            <div class="flex-row space-between">
+                <a routerLink="/login">
+                    <nb-icon icon="arrow-back-outline"></nb-icon>
+                    Retour à la connexion
+                </a>
+                <button class="float-right" type="submit" nbButton status="basic" (click)="onSubmit()" [disabled]="showSpinner || this.formSignup.invalid" [nbSpinner]="showSpinner" nbSpinnerStatus="basic">
+                    <nb-icon icon="log-in"></nb-icon>
+                    Inscription
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+  </nb-card>

@@ -1,0 +1,129 @@
+<h1>Mon compte</h1>
+<div *ngIf="user" class="flex-row space-between">
+    <nb-card class="account-details">
+        <nb-card-body class="flex-column">
+            <div class="flex-column align-items-center">
+                <div class="round">
+                    {{ user.firstName[0] }}{{ user.lastName[0] }}
+                </div>
+                <span>
+                    {{ user.firstName }} {{ user.lastName }}
+                </span>
+            </div>
+            <div class="details flex-column">
+                <span>
+                    <nb-icon icon="calendar-outline"></nb-icon>
+                    Inscription : {{ user.userConfirmation.createdAt }}
+                </span>
+                <span>
+                    <nb-icon icon="checkmark-circle-outline"></nb-icon>
+                    Compte confirmé : {{ user.userConfirmation.confirmedAt }}
+                </span>
+            </div>
+        </nb-card-body>
+    </nb-card>
+    <nb-card class="update-account">
+        <nb-card-body>
+            <nb-tabset>
+                <nb-tab tabTitle="Compte">
+                    <h2>Compte</h2>
+                    <form [formGroup]="accountForm" (submit)="onSubmit()">
+                        <div class="flex-row space-between">
+                            <div class="flex-column">
+                                <label for="firstName">Prénom *</label>
+                                <input
+                                    nbInput
+                                    status="basic"
+                                    formControlName="firstName"
+                                    id="firstName"
+                                    type="text"
+                                    placeholder="Ex: John"
+                                >
+                            </div>
+                            <div class="flex-column">
+                                <label for="lastName">Nom de famille *</label>
+                                <input
+                                    nbInput
+                                    status="basic"
+                                    formControlName="lastName"
+                                    id="lastName"
+                                    type="text"
+                                    placeholder="Ex: DOE"
+                                >
+                            </div>
+                        </div>
+                        <div class="flex-row space-between">
+                            <div class="flex-column">
+                                <label for="email">Adresse mail *</label>
+                                <input
+                                    nbInput
+                                    status="basic"
+                                    formControlName="email"
+                                    id="email"
+                                    type="email"
+                                    placeholder="Ex: john@doe.com"
+                                >
+                            </div>
+                            <div class="flex-column">
+                                <label for="domainName">Nom de domaine *</label>
+                                <input
+                                    nbInput
+                                    status="basic"
+                                    formControlName="domainName"
+                                    id="domainName"
+                                    type="domainName"
+                                    placeholder="Ex: https://Scriptor.fr"
+                                >
+                            </div>
+                        </div>
+                        <div class="flex-row space-between">
+                            <div class="flex-column">
+                                <label for="facebookPage">URL de votre page Facebook *</label>
+                                <input
+                                    nbInput
+                                    status="basic"
+                                    formControlName="facebookPage"
+                                    id="facebookPage"
+                                    type="url"
+                                    placeholder="Ex : https://facebook.com/jon-doe"
+                                >
+                            </div>
+                        </div>
+                        <button
+                            nbButton
+                            status="primary"
+                            (click)="onSubmit()"
+                            [disabled]="showButtonSpinner || this.accountForm.invalid"
+                            [nbSpinner]="showButtonSpinner"
+                            nbSpinnerStatus="basic"
+                            class="float-right"
+                            type="submit"
+                        >
+                            <nb-icon icon="save"></nb-icon>
+                            Modifier
+                        </button>
+                    </form>
+                </nb-tab>
+                <nb-tab tabTitle="Sécurité">
+                    <h2>Sécurité</h2>
+                    <form action="">
+                        <div class="flex-row">
+                            <div class="flex-column">
+                                <label for="resetPassword">Modifier mon mot de passe</label>
+                                <button
+                                    (click)="sendResetPasswordLink()"
+                                    nbButton
+                                    [nbSpinner]="showSpinnerResetPassword"
+                                    [disabled]="showSpinnerResetPassword"
+                                    id="resetPassword"
+                                >
+                                    Envoyer un lien de réinitialisation
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card-body>
+    </nb-card>
+</div>

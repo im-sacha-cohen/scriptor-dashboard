@@ -1,0 +1,25 @@
+ngx-editor-menu {
+    .NgxEditor__MenuBar {
+        background-color: var(--input-basic-background-color);
+        border-radius: var(--input-rectangle-border-radius);
+
+        * {
+            cursor: pointer;
+        }
+    }
+}
+
+ngx-editor {
+    margin-top: 5px;
+
+    .NgxEditor {
+        background-color: var(--input-basic-background-color);
+        border-color: var(--input-basic-border-color);
+        min-height: 150px;
+        transition: 350ms;
+
+        &:hover {
+            background-color: var(--input-basic-hover-background-color);
+        }
+    }
+}

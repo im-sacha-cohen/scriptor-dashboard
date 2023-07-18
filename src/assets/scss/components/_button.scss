@@ -1,0 +1,26 @@
+button {
+    border: none !important;
+    transition: 200ms;
+
+    &.yellow {
+        background: $yellow !important;
+
+        &:disabled {
+            background: $yellow !important;
+            opacity: 0.5;
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        color: black !important;
+    }
+
+    &:hover {
+        filter: contrast(0.9);
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}

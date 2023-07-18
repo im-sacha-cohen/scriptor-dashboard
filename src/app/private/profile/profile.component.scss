@@ -1,0 +1,39 @@
+.account-details {
+    width: 29%;
+    height: fit-content;
+
+    .round {
+        height: 60px;
+        width: 60px;
+        background: #FF914D;
+        padding: 10px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: white;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    .details {
+        margin-top: 20px;
+        
+        span {
+            color: grey;
+            font-weight: 600;
+            font-size: 12px;
+        }
+    }
+}
+
+.update-account {
+    width: 69%;
+}
+
+@media (max-width: 900px) {
+    .account-details, .update-account {
+        width: 100%;
+    }
+}

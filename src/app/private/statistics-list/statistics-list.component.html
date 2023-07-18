@@ -1,0 +1,31 @@
+<div class="title-container">
+    <h1>Statistiques <small *ngIf="data">({{ data.count }} au total)</small></h1>
+  </div>
+  
+  <nb-card>
+    <nb-card-body>
+      <app-empty
+        *ngIf="!showSpinner && dataEmpty"
+        [title]="'Aucun lien n\'a été créé pour le moment !'"
+        [message]="'Essayez maintenant.'"
+        [buttonText]="'Créer un lien'"
+        [buttonLink]="'/link/new'"
+        [cardBorders]="false"
+      ></app-empty>
+      <table [nbSpinner]="showSpinner">
+        <thead *ngIf="!dataEmpty">
+          <tr>
+            <td>Cliqué le</td>
+            <td>Lien</td>
+          </tr>
+        </thead>
+        <tbody *ngIf="data">
+          <tr *ngFor="let stat of data.data">
+            <td>{{ stat.createdAt }}</td>
+            <td>{{ stat.link.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </nb-card-body>
+  </nb-card>
+  <span>100 résultats maximum</span>

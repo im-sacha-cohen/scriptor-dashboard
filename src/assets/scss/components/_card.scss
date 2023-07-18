@@ -1,0 +1,37 @@
+.flex-row {
+    display: flex;
+    //flex-wrap: wrap;
+
+    nb-card {
+        width: 49%;
+    }
+}
+
+nb-card {
+    &.no-borders {
+        border: none;
+    }
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &.hover {
+        cursor: pointer;
+        transition: 150ms;
+
+        &:hover {
+            background: $broken-white-hover;
+        }
+    }
+
+    &.broken-white {
+        background: $broken-white;
+    }
+
+    nb-card-footer {
+        &.float-right {
+            button {
+                float: right;
+            }
+        }
+    }
+}

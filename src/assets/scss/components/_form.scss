@@ -1,0 +1,39 @@
+form {
+    label {
+        margin-bottom: 5px;
+    }
+
+    .flex-column {
+        margin-bottom: 30px;
+
+        input, select {
+            width: 100%;
+            max-width: unset !important;
+        }
+    }
+
+    .flex-row {
+        .flex-column {
+            width: 49%;
+
+            &.w-100 {
+                width: 100%;
+            }
+
+            input, select, textarea {
+                width: 100%;
+                max-width: unset !important;
+            }
+        }
+    }
+
+    button {
+        &.float-right {
+            float: right;
+        }
+    }
+
+    input, textarea {
+        border: none !important;
+    }
+}

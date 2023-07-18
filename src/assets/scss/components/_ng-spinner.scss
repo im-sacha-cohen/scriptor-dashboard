@@ -1,0 +1,10 @@
+nb-spinner {
+    background: #ffffff75 !important;
+    backdrop-filter: blur(3px) !important;
+
+    span {
+        border-top-color: $blue !important;
+        border-bottom-color: $blue !important;
+        border-left-color: $blue !important;
+    }
+}

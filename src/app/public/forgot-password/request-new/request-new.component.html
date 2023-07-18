@@ -1,0 +1,32 @@
+<h1>Réinitialisation de mot de passe</h1>
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="formReset" (ngSubmit)="onSubmit()">
+            <div class="flex-column">
+                <label for="mail">Adresse mail</label>
+                <input nbInput status="basic" formControlName="email" type="mail" placeholder="Ex: jondoe@gmail.com">
+            </div>
+            <nb-alert *ngIf="showAlert" status="success" class="success">
+                Un lien de réinitialisation a bien été envoyé à votre adresse mail.
+            </nb-alert>
+            <div class="flex-row space-between">
+                <a routerLink="/login">
+                    <nb-icon icon="arrow-back-outline"></nb-icon>
+                    Retour à la connexion
+                </a>
+                <button
+                    class="float-right"
+                    type="submit"
+                    nbButton status="basic"
+                    (click)="onSubmit()"
+                    [disabled]="showSpinner || this.formReset.invalid"
+                    [nbSpinner]="showSpinner"
+                    nbSpinnerStatus="basic"
+                >
+                    <nb-icon icon="log-in"></nb-icon>
+                    Envoyer un lien de réinitialisation
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+  </nb-card>

@@ -1,0 +1,35 @@
+<nb-layout>
+    <nb-layout-header>
+        <div class="flex-row space-between">
+            <nb-actions>
+                <nb-action>
+                    <a routerLink="/home">
+                        <span class="app-name">Scriptor</span>
+                    </a>
+                </nb-action>
+            </nb-actions>
+            <nb-actions>
+                <nb-action></nb-action>
+                <nb-action>
+                    <button ghost nbButton [nbContextMenu]="profileItems">
+                        <div class="round">
+                            {{ initial }}
+                        </div>
+                        {{ fullName }}
+                    </button>
+                </nb-action>
+            </nb-actions>
+        </div>
+    </nb-layout-header>
+
+    <nb-sidebar>
+        <img src="../../../assets/img/logo-white.svg?v=1.0.0" alt="Logo">
+        <nb-menu [items]="items" autoCollapse="false"></nb-menu>
+    </nb-sidebar>
+  
+    <nb-layout-column class="colored-column-success">
+        <main class="private">
+            <router-outlet></router-outlet>
+        </main>
+    </nb-layout-column>
+  </nb-layout>

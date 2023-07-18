@@ -1,0 +1,33 @@
+<div *ngIf="isAlreadyConnected" class="section-card white hover d-flex flex-column align-items-center">
+    <h5>{{ firstName }}, vous êtes déjà connecté(e) !</h5>
+    <a routerLink="/home" class="button">
+        <button class="blue">
+            <i class="bi bi-house-door"></i>
+            Aller à mon dashboard
+        </button>
+    </a>
+</div>
+<h1>Connexion</h1>
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <div class="flex-column">
+        <label for="mail">Adresse mail</label>
+        <input nbInput status="basic" formControlName="email" type="mail" placeholder="Ex: jondoe@gmail.com">
+    </div>
+    <div class="flex-column">
+        <div class="flex-row space-between">
+            <label for="password">Mot de passe</label>
+            <a routerLink="/forgot-password/request-new">Mot de passe oublié ?</a>
+        </div>
+        <input nbInput status="basic" formControlName="password" type="password" placeholder="*******">
+    </div>
+    <nb-alert *ngIf="alertMessage" status="{{ alertType }}" class="{{ alertType }}">
+        {{ alertMessage }}
+    </nb-alert>
+    <div class="flex-row space-between">
+        
+        <button class="yellow" type="submit" nbButton status="basic" (click)="onSubmit()" [disabled]="showSpinner || this.formLogin.invalid" [nbSpinner]="showSpinner" nbSpinnerStatus="basic">
+            <nb-icon icon="log-in"></nb-icon>
+            Connexion
+        </button>
+    </div>
+</form>

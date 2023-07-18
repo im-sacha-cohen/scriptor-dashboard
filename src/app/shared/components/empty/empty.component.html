@@ -1,0 +1,13 @@
+<nb-card [ngClass]="!cardBorders ? 'no-borders' : ''">
+    <nb-card-body>
+        <div class="flex-column align-items-center">
+            <img src="../../../../assets/illustration/not-found.svg" alt="Illustration not found">
+            <h6>{{ title }}</h6>
+            <span>{{ message }}</span>
+            <button routerLink="{{ buttonLink }}" nbButton status="primary" size="small">
+                <i class="fa-solid fa-arrow-right"></i>
+                {{ buttonText }}
+            </button>
+        </div>
+    </nb-card-body>
+  </nb-card>

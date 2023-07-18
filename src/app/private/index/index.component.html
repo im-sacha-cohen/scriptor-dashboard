@@ -1,0 +1,27 @@
+<h1>Hello {{ firstName }} !</h1>
+<nb-card>
+    <h2>
+        <div class="round">
+            <nb-icon icon="bar-chart-2-outline"></nb-icon>
+        </div>
+        Statistiques
+    </h2>
+    <div class="body">
+        <nb-card-body [nbSpinner]="showLinkCreatedTodaySpinner">
+            <span class="title">Création de lien aujourd'hui</span>
+            <span class="stat">{{ countLinkCreatedToday }}</span>
+        </nb-card-body>
+        <nb-card-body [nbSpinner]="showClickCumulatedTodaySpinner">
+            <span class="title">Clics cumulés aujourd'hui</span>
+            <span class="stat">{{ countClickCumulatedToday }}</span>
+        </nb-card-body>
+        <nb-card-body [nbSpinner]="showLinkCreatedYesterdaySpinner">
+          <span class="title">Création de lien hier</span>
+          <span class="stat">{{ countLinkCreatedYesterday }}</span>
+        </nb-card-body>
+        <nb-card-body [nbSpinner]="showClickCumulatedYesterdaySpinner">
+            <span class="title">Clics cumulés hier</span>
+            <span class="stat">{{ countClickCumulatedYesterday }}</span>
+        </nb-card-body>
+    </div>
+  </nb-card>
