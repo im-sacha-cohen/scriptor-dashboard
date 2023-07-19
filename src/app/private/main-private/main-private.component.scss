@@ -1,3 +1,5 @@
+@import '../../../assets/scss/variables';
+
 nb-layout-header {
     position: fixed;
     z-index: 999;
@@ -23,7 +25,7 @@ nb-layout-header {
                     .round {
                         height: 35px;
                         width: 35px;
-                        background: #FF914D;
+                        background: $yellow;
                         padding: 10px;
                         border-radius: 100%;
                         display: flex;

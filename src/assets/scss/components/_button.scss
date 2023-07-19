@@ -2,12 +2,19 @@ button {
     border: none !important;
     transition: 200ms;
 
+    &:not(.appearance-outline) {
+        &:not(.appearance-ghost) {
+            &:not(.nb-tree-grid-header-change-sort-button) {
+                color: white !important;
+            }
+        }
+    }
+
     &.yellow {
         background: $yellow !important;
 
         &:disabled {
             background: $yellow !important;
-            opacity: 0.5;
         }
     }
 
@@ -16,7 +23,6 @@ button {
 
         &:disabled {
             background: $blue !important;
-            opacity: 0.5;
         }
     }
 
@@ -25,13 +31,11 @@ button {
 
         &:disabled {
             background: $red !important;
-            opacity: 0.5;
         }
     }
 
     &:disabled {
         opacity: 0.5;
-        color: black !important;
     }
 
     &:hover {

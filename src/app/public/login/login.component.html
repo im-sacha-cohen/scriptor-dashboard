@@ -24,9 +24,17 @@
         {{ alertMessage }}
     </nb-alert>
     <div class="flex-row space-between">
-        
-        <button class="yellow" type="submit" nbButton status="basic" (click)="onSubmit()" [disabled]="showSpinner || this.formLogin.invalid" [nbSpinner]="showSpinner" nbSpinnerStatus="basic">
-            <nb-icon icon="log-in"></nb-icon>
+        <button
+            class="yellow"
+            type="submit"
+            nbButton
+            status="basic"
+            (click)="onSubmit()"
+            [disabled]="showSpinner || this.formLogin.invalid"
+            [nbSpinner]="showSpinner"
+            nbSpinnerStatus="basic"
+        >
+            <i class="fa-solid fa-right-to-bracket"></i>
             Connexion
         </button>
     </div>
