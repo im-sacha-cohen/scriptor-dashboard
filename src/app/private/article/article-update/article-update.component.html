@@ -1,10 +1,10 @@
 <div class="title-container">
-    <h1>Nouvel article</h1>
+    <h1>Modification d'article</h1>
 </div>
 
 <nb-card>
-    <nb-card-body>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <nb-card-body [nbSpinner]="showCardSpinner">
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
             <div class="flex-row space-between">
                 <div class="flex-column">
                     <label for="title">Titre *</label>
@@ -69,14 +69,14 @@
                 <button
                     nbButton
                     status="primary"
-                    [disabled]="showSpinner || this.createForm.invalid"
+                    [disabled]="showSpinner || this.updateForm.invalid"
                     [nbSpinner]="showSpinner"
                     nbSpinnerStatus="basic"
                     class="float-right yellow"
                     type="submit"
                 >
-                    <nb-icon icon="plus"></nb-icon>
-                    Créer
+                    <i class="fa-solid fa-pen"></i>
+                    Mettre à jour
                 </button>
             </div>
         </form>

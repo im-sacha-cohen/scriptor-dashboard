@@ -52,7 +52,7 @@ export class CategoryListComponent implements OnInit {
               },
               delete: {
                 route: `/secure/category/${element.slug}`,
-                message: `Voulez-vous vraiment supprimer la catégorie ${element.name} ?<br/>Tous les articles associés seront <strong>sans catégorie.</strong>`,
+                message: `Voulez-vous vraiment supprimer la catégorie <em>${element.name}</em> ?<br/>Tous les articles associés seront <strong>sans catégorie.</strong>`,
               }
             }
           }

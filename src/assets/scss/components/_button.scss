@@ -6,7 +6,13 @@ button {
         &:not(.appearance-ghost) {
             &:not(.nb-tree-grid-header-change-sort-button) {
                 &:not(.select-button) {
-                    color: white !important;
+                    &:not(.angular-editor-button) {
+                        &:not(.ae-picker-label) {
+                            &:not(.appearance-filled) {
+                                color: white !important;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -44,6 +50,7 @@ button {
 
     &:disabled {
         opacity: 0.5;
+        cursor: not-allowed;
     }
 
     &:hover {

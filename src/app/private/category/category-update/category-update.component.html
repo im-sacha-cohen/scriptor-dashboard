@@ -4,7 +4,7 @@
 
 <nb-card>
     <nb-card-body [nbSpinner]="showCardSpinner">
-        <form [formGroup]="updateForm" >
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
             <div class="flex-row space-between">
                 <div class="flex-column">
                     <label for="name">Nom de la catégorie *</label>
@@ -24,6 +24,7 @@
                     status="warning"
                     outline
                     routerLink="/category"
+                    type="button"
                 >
                     <i class="fa-solid fa-arrow-left"></i>
                     Retour à la liste
@@ -31,11 +32,11 @@
                 <button
                     nbButton
                     status="primary"
-                    (click)="onSubmit()"
                     [disabled]="showSpinner || this.updateForm.invalid"
                     [nbSpinner]="showSpinner"
                     nbSpinnerStatus="basic"
                     class="float-right yellow"
+                    type="submit"
                 >
                     <i class="fa-solid fa-pen"></i>
                     Mettre à jour

@@ -27,6 +27,10 @@ nb-card {
         background: $broken-white;
     }
 
+    nb-card-body {
+        overflow: initial !important;
+    }
+
     nb-card-footer {
         &.float-right {
             button {

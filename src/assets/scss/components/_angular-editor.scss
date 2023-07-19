@@ -1,0 +1,41 @@
+angular-editor {
+    angular-editor-toolbar {
+        .angular-editor-toolbar {
+            border-radius: var(--select-rectangle-border-radius) !important;
+            padding: var(--select-outline-medium-padding) !important;
+            background-color: var(--select-outline-basic-background-color) !important;
+            border: none !important;
+
+            button {
+                border-radius: var(--select-rectangle-border-radius) !important;
+                padding: var(--select-outline-medium-padding) !important;
+            }
+
+            span {
+                &.ae-picker-options {
+                    background: $blue !important;
+                    border-radius: var(--select-rectangle-border-radius) !important;
+                    padding: var(--select-outline-medium-padding) !important;
+                    box-shadow: none !important;
+                    border: none !important;
+
+                    button {
+                        &.selected, &:hover {
+                            background: $yellow !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .angular-editor-textarea {
+        border-radius: var(--select-rectangle-border-radius) !important;
+        padding: var(--select-outline-medium-padding) !important;
+        background-color: var(--select-outline-basic-background-color) !important;
+        border: none !important;
+        outline: none !important;
+        font-size: var(--input-medium-text-font-size) !important;
+        font-weight: var(--input-medium-text-font-weight) !important;
+    }
+}

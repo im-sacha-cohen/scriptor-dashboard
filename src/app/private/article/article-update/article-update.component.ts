@@ -1,22 +1,24 @@
-import { HttpEvent } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { AngularEditorConfig, UploadResponse } from '@kolkov/angular-editor';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { NbToastrService } from '@nebular/theme';
-import { Observable } from 'rxjs';
+import { Validators } from 'ngx-editor';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
-  selector: 'app-article-new',
-  templateUrl: './article-new.component.html',
-  styleUrls: ['./article-new.component.scss']
+  selector: 'app-article-update',
+  templateUrl: './article-update.component.html',
+  styleUrls: ['./article-update.component.scss']
 })
-export class ArticleNewComponent implements OnInit {
-  createForm: FormGroup;
+export class ArticleUpdateComponent implements OnInit {
+  showCardSpinner = true;
+  updateForm: FormGroup;
   showSpinner = false;
-  categories: any[];
+  article: any;
+  slug: string|null;
+  categories: any;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -60,9 +62,17 @@ export class ArticleNewComponent implements OnInit {
     private queryService: QueryService,
     private toastrService: NbToastrService,
     private title: Title,
+    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.title.setTitle('Scriptor | Nouvel article');
+    this.title.setTitle('Scriptor | Modification de catégorie');
+
+    this.activatedRoute.paramMap.subscribe(params => {
+      if (params.get('slug')) {
+        this.slug = params.get('slug');
+        this.getArticle();
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -70,12 +80,39 @@ export class ArticleNewComponent implements OnInit {
     this.getCategories();
   }
 
+  getCategories(): void {
+    this.queryService.query(
+      'GET',
+      '/category'
+    ).subscribe(
+      resp => {
+        this.categories = resp;
+      }
+    );
+  }
+
+  getArticle(): void {
+    this.showCardSpinner = true;
+
+    this.queryService.query(
+      'GET',
+      '/article/' + this.slug
+    ).subscribe(
+      resp => {
+        this.article = resp;
+        this.buildForm();
+        this.showCardSpinner = false;
+      }
+    );
+  }
+
+
   buildForm(): void {
-    this.createForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      summary: ['', Validators.required],
-      content: ['', Validators.required],
-      category: ['', Validators.required]
+    this.updateForm = this.formBuilder.group({
+      title: [this.article?.title, Validators.required],
+      summary: [this.article?.summary, Validators.required],
+      content: [this.article?.content, Validators.required],
+      category: [this.article?.category.slug, Validators.required]
     });
   }
 
@@ -83,13 +120,15 @@ export class ArticleNewComponent implements OnInit {
     this.showSpinner = true;
 
     this.queryService.query(
-      'POST',
-      '/secure/article',
-      this.createForm.value
+      'PUT',
+      '/secure/article/' + this.slug,
+      this.updateForm.value
     ).subscribe(
       resp => {
+        this.article = resp.object;
         this.showSpinner = false;
-        this.toastrService.show("L'article' a bien été créé", "Succès", { status: 'success' });
+        this.toastrService.show("L'article a bien été mit à jour", "Succès", { status: 'success' });
+        this.buildForm();
         this.router.navigate(['/article']);
       },
       error => {
@@ -97,12 +136,5 @@ export class ArticleNewComponent implements OnInit {
         this.toastrService.show(error.error.error, "Une erreur est survenue", { status: 'danger' });
       }
     );
-  }
-
-  getCategories(): void {
-    this.queryService.query(
-      'GET',
-      `/category`
-    ).subscribe( resp => this.categories = resp);
   }
 }

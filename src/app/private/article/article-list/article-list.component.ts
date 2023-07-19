@@ -12,8 +12,8 @@ export class ArticleListComponent implements OnInit {
   showSpinner = true;
   articles: any[] = [];
   isDataEmpty = false;
-  customColumn = 'Nom';
-  defaultColumns = [ 'Slug', 'Actions' ];
+  customColumn = 'Titre';
+  defaultColumns = [ 'Summary', 'Catégorie', 'Créé le', 'Écrit par', 'Actions' ];
 
   constructor(
     private queryService: QueryService,
@@ -46,13 +46,19 @@ export class ArticleListComponent implements OnInit {
 
       resp.forEach((element: any) => {
         articles.push({
-          data: { Nom: element.name, Slug: element.slug, Actions: {
+          data: {
+            'Titre': element.title,
+            'Summary': element.summary,
+            'Catégorie': element.category.name,
+            'Créé le': element.slug,
+            'Écrit par': element.createdBy.fullName,
+            'Actions': {
               update: {
                 route: `/article/update/${element.slug}`
               },
               delete: {
                 route: `/secure/article/${element.slug}`,
-                message: `Voulez-vous vraiment supprimer l'article ${element.name} ?`,
+                message: `Voulez-vous vraiment supprimer l'article <em>${element.title}</em> ?`,
               }
             }
           }

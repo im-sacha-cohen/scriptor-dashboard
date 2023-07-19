@@ -28,6 +28,8 @@ import { CategoryNewComponent } from './private/category/category-new/category-n
 import { CategoryUpdateComponent } from './private/category/category-update/category-update.component';
 import { ArticleListComponent } from './private/article/article-list/article-list.component';
 import { ArticleNewComponent } from './private/article/article-new/article-new.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ArticleUpdateComponent } from './private/article/article-update/article-update.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { ArticleNewComponent } from './private/article/article-new/article-new.c
     CategoryNewComponent,
     CategoryUpdateComponent,
     ArticleListComponent,
-    ArticleNewComponent
+    ArticleNewComponent,
+    ArticleUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { ArticleNewComponent } from './private/article/article-new/article-new.c
     NbContextMenuModule,
     NbMenuModule.forRoot(),
     NbPopoverModule,
-    NgxEditorModule
+    NgxEditorModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
