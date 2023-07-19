@@ -67,10 +67,12 @@ nb-sidebar {
                                 }
 
                                 &.active {
-                                    color: $yellow !important;
-
-                                    nb-icon {
+                                    &:not(:hover) {
                                         color: $yellow !important;
+
+                                        nb-icon {
+                                            color: $yellow !important;
+                                        }
                                     }
                                 }
                             }

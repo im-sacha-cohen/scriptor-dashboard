@@ -35,5 +35,9 @@ form {
 
     input, textarea {
         border: none !important;
+
+        &:focus {
+            background-color: var(--input-basic-background-color) !important;
+        }
     }
 }

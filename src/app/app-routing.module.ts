@@ -17,6 +17,7 @@ import { StatisticsListComponent } from './private/statistics-list/statistics-li
 import { LinkUpdateComponent } from './private/link-update/link-update.component';
 import { CategoryListComponent } from './private/category/category-list/category-list.component';
 import { CategoryNewComponent } from './private/category/category-new/category-new.component';
+import { CategoryUpdateComponent } from './private/category/category-update/category-update.component';
 
 const routes: Routes = [
   {
@@ -90,6 +91,10 @@ const routes: Routes = [
           {
             path: 'new',
             component: CategoryNewComponent
+          },
+          {
+            path: 'update/:slug',
+            component: CategoryUpdateComponent
           }
         ]
       }

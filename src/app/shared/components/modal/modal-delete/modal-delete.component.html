@@ -8,7 +8,15 @@
             <i class="fa-solid fa-arrow-left"></i>
             Annuler
           </button>
-        <button [nbSpinner]="showSpinner" [disabled]="showSpinner" nbButton status="danger" size="small" (click)="deleteItem()">
+        <button
+            [nbSpinner]="showSpinner"
+            [disabled]="showSpinner"
+            nbButton
+            status="danger"
+            size="small"
+            class="red"
+            (click)="deleteItem()"
+        >
             <i class="fa-solid fa-trash"></i>
             Supprimer
           </button>

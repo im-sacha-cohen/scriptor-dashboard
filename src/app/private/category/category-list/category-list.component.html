@@ -1,19 +1,27 @@
 <div class="title-container">
     <h1>Catégories <small *ngIf="categories">({{ categories.length }})</small></h1>
     <div>
-        <button class="blue" nbButton status="success" size="small" routerLink="/category/new">
+        <button class="blue" nbButton status="success" routerLink="/category/new">
             <i class="fa-solid fa-pen"></i>
             Nouvelle
         </button>
     </div>
 </div>
-<nb-card *ngIf="!showSpinner" [nbSpinner]="showSpinner">
+
+<nb-card *ngIf="!isDataEmpty">
     <nb-card-body>
         <app-tree-grid
-        *ngIf="categories.length >0"
             [customColumn]="customColumn"
             [defaultColumns]="defaultColumns"
-            [data]="categories"
+            (isDeleted)="getCategories()"
         ></app-tree-grid>
     </nb-card-body>
 </nb-card>
+
+<app-empty
+    *ngIf="!showSpinner && isDataEmpty"
+    [title]="'Aucune catégorie'"
+    [message]="'Vous n\'avez pas encore créé de catégorie.'"
+    [buttonText]="'Créer une catégorie'"
+    [buttonLink]="'/category/new'"
+></app-empty>

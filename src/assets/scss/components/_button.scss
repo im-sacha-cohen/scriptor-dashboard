@@ -20,6 +20,15 @@ button {
         }
     }
 
+    &.red {
+        background: $red !important;
+
+        &:disabled {
+            background: $red !important;
+            opacity: 0.5;
+        }
+    }
+
     &:disabled {
         opacity: 0.5;
         color: black !important;

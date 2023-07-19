@@ -1,46 +1,60 @@
-<div class="flex-column">
-    <label class="search-label" for="search">Rechercher</label>
-    <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input" placeholder="Rechercher">
-</div>
+<div [nbSpinner]="showSpinner">
+    <div class="flex-column">
+        <label class="search-label" for="search">Rechercher</label>
+        <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input" placeholder="Rechercher">
+    </div>
 
-<table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
-    
-    <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-    <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-    
-    <ng-container [nbTreeGridColumnDef]="customColumn">
-        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-            {{customColumn}}
-        </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
-            {{row.data[customColumn]}}
-        </td>
-    </ng-container>
-    
-    <ng-container *ngFor="let column of defaultColumns; let index = index"
-        [nbTreeGridColumnDef]="column"
-        [showOn]="getShowOn(index)">
-        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-            {{column}}
-        </th>
-        <ng-container *ngIf="column !== 'Actions'">
-            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
-        </ng-container>
-        <ng-container *ngIf="column === 'Actions'">
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)" class="tree-grid">
+        
+        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+        
+        <ng-container [nbTreeGridColumnDef]="customColumn">
+            <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+                {{customColumn}}
+            </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                <button
-                    nbButton
-                    status="primary"
-                    nbSpinnerStatus="basic"
-                    class="yellow"
-                    size="tiny"
-                    routerLink="{{row.data.Actions.update.route}}"
-                >
-                    <nb-icon icon="pen"></nb-icon>
-                    Modifier
-                </button>
+                {{row.data[customColumn]}}
             </td>
         </ng-container>
-    </ng-container>
-
-</table>
+        
+        <ng-container *ngFor="let column of defaultColumns; let index = index"
+            [nbTreeGridColumnDef]="column"
+            [showOn]="getShowOn(index)">
+            <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                {{column}}
+            </th>
+            <ng-container *ngIf="column !== 'Actions'">
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+            </ng-container>
+            <ng-container *ngIf="column === 'Actions'">
+                <td nbTreeGridCell *nbTreeGridCellDef="let row" class="btn-group">
+                    <button
+                        *ngIf="row.data.Actions.update"
+                        nbButton
+                        status="primary"
+                        nbSpinnerStatus="basic"
+                        class="yellow"
+                        size="small"
+                        routerLink="{{row.data.Actions.update.route}}"
+                    >
+                        <i class="fa-solid fa-pen"></i>
+                        Modifier
+                    </button>
+                    <button
+                        *ngIf="row.data.Actions.delete"
+                        nbButton
+                        status="primary"
+                        nbSpinnerStatus="basic"
+                        class="red"
+                        size="small"
+                        (click)="openDeleteModalFor(row.data.Actions.delete.route, row.data.Actions.delete.message)"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                        Delete
+                    </button>
+                </td>
+            </ng-container>
+        </ng-container>
+    </table>
+</div>
