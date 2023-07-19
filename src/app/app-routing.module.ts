@@ -14,6 +14,8 @@ import { ResetComponent } from './public/forgot-password/reset/reset.component';
 import { CategoryListComponent } from './private/category/category-list/category-list.component';
 import { CategoryNewComponent } from './private/category/category-new/category-new.component';
 import { CategoryUpdateComponent } from './private/category/category-update/category-update.component';
+import { ArticleListComponent } from './private/article/article-list/article-list.component';
+import { ArticleNewComponent } from './private/article/article-new/article-new.component';
 
 const routes: Routes = [
   {
@@ -92,6 +94,23 @@ const routes: Routes = [
             path: 'update/:slug',
             component: CategoryUpdateComponent
           }
+        ]
+      },
+      {
+        path: 'article',
+        children: [
+          {
+            path: '',
+            component: ArticleListComponent
+          },
+          {
+            path: 'new',
+            component: ArticleNewComponent
+          },
+          /*{
+            path: 'update/:slug',
+            component: CategoryUpdateComponent
+          }*/
         ]
       }
     ]

@@ -24,7 +24,7 @@ export class MainPrivateComponent implements OnInit {
         {
           title: 'Articles',
           icon: 'book-open-outline',
-          link: '/links',
+          link: '/article',
         },
         {
           title: 'Catégories',

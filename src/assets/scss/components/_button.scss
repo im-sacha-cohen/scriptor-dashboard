@@ -5,8 +5,16 @@ button {
     &:not(.appearance-outline) {
         &:not(.appearance-ghost) {
             &:not(.nb-tree-grid-header-change-sort-button) {
-                color: white !important;
+                &:not(.select-button) {
+                    color: white !important;
+                }
             }
+        }
+    }
+
+    &.select-button {
+        &:focus {
+            background-color: var(--input-basic-background-color) !important;
         }
     }
 

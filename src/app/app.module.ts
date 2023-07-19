@@ -26,6 +26,8 @@ import { CategoryListComponent } from './private/category/category-list/category
 import { TreeGridComponent } from './shared/components/tree-grid/tree-grid.component';
 import { CategoryNewComponent } from './private/category/category-new/category-new.component';
 import { CategoryUpdateComponent } from './private/category/category-update/category-update.component';
+import { ArticleListComponent } from './private/article/article-list/article-list.component';
+import { ArticleNewComponent } from './private/article/article-new/article-new.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CategoryUpdateComponent } from './private/category/category-update/cate
     CategoryListComponent,
     TreeGridComponent,
     CategoryNewComponent,
-    CategoryUpdateComponent
+    CategoryUpdateComponent,
+    ArticleListComponent,
+    ArticleNewComponent
   ],
   imports: [
     BrowserModule,

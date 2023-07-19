@@ -1,0 +1,27 @@
+<div class="title-container">
+    <h1>Articles <small *ngIf="articles">({{ articles.length }})</small></h1>
+    <div>
+        <button class="blue" nbButton status="success" routerLink="/article/new">
+            <i class="fa-solid fa-pen"></i>
+            Nouveau
+        </button>
+    </div>
+</div>
+
+<nb-card *ngIf="!isDataEmpty">
+    <nb-card-body>
+        <app-tree-grid
+            [customColumn]="customColumn"
+            [defaultColumns]="defaultColumns"
+            (isDeleted)="getArticles()"
+        ></app-tree-grid>
+    </nb-card-body>
+</nb-card>
+
+<app-empty
+    *ngIf="!showSpinner && isDataEmpty"
+    [title]="'Aucun article'"
+    [message]="'Vous n\'avez pas encore créé d\'article'"
+    [buttonText]="'Créer un article'"
+    [buttonLink]="'/article/new'"
+></app-empty>
