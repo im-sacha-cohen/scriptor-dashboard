@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Validators } from 'ngx-editor';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
 

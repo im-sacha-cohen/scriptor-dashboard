@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
-import { Validators } from 'ngx-editor';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -31,7 +30,9 @@ export class CategoryNewComponent implements OnInit {
 
   buildForm(): void {
     this.createForm = this.formBuilder.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      subTitle: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 

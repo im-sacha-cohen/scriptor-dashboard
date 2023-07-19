@@ -6,7 +6,7 @@ form {
     .flex-column {
         margin-bottom: 30px;
 
-        input, nb-select {
+        input, nb-selec, textarea {
             width: 100%;
             max-width: unset !important;
         }
@@ -39,5 +39,10 @@ form {
         &:focus {
             background-color: var(--input-basic-background-color) !important;
         }
+    }
+
+    textarea {
+        min-height: 200px;
+        resize: vertical;
     }
 }

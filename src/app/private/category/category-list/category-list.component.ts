@@ -13,7 +13,7 @@ export class CategoryListComponent implements OnInit {
   categories: any[] = [];
   isDataEmpty = false;
   customColumn = 'Nom';
-  defaultColumns = [ 'Slug', 'Actions' ];
+  defaultColumns = [ 'Sous-titre', 'Slug', 'Actions' ];
 
   constructor(
     private queryService: QueryService,
@@ -46,7 +46,7 @@ export class CategoryListComponent implements OnInit {
 
       resp.forEach((element: any) => {
         categories.push({
-          data: { Nom: element.name, Slug: element.slug, Actions: {
+          data: { Nom: element.name, 'Sous-titre': element.subTitle, Slug: element.slug, Actions: {
               update: {
                 route: `/category/update/${element.slug}`
               },

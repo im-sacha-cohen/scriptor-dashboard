@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { NbToastrService } from '@nebular/theme';
-import { Validators } from 'ngx-editor';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { environment } from 'src/environments/environment';
@@ -50,9 +49,7 @@ export class ProfileComponent implements OnInit {
     this.accountForm = this.formBuilder.group({
       firstName: [this.user.firstName, Validators.required],
       lastName: [this.user.lastName, Validators.required],
-      email: [this.user.email, Validators.required],
-      domainName: [this.user.domainName, Validators.required],
-      facebookPage: [this.user.facebookPage, Validators.required]
+      email: [this.user.email, Validators.required]
     });
   }
 

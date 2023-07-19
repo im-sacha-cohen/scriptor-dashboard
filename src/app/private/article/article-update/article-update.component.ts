@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { NbToastrService } from '@nebular/theme';
-import { Validators } from 'ngx-editor';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
