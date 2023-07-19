@@ -16,6 +16,7 @@ import { LinkNewComponent } from './private/link-new/link-new.component';
 import { StatisticsListComponent } from './private/statistics-list/statistics-list.component';
 import { LinkUpdateComponent } from './private/link-update/link-update.component';
 import { CategoryListComponent } from './private/category/category-list/category-list.component';
+import { CategoryNewComponent } from './private/category/category-new/category-new.component';
 
 const routes: Routes = [
   {
@@ -80,11 +81,15 @@ const routes: Routes = [
         component: ProfileComponent
       },
       {
-        path: 'categories',
+        path: 'category',
         children: [
           {
             path: '',
             component: CategoryListComponent
+          },
+          {
+            path: 'new',
+            component: CategoryNewComponent
           }
         ]
       }

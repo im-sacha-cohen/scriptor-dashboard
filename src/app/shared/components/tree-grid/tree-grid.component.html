@@ -23,7 +23,24 @@
         <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
             {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        <ng-container *ngIf="column !== 'Actions'">
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        </ng-container>
+        <ng-container *ngIf="column === 'Actions'">
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                <button
+                    nbButton
+                    status="primary"
+                    nbSpinnerStatus="basic"
+                    class="yellow"
+                    size="tiny"
+                    routerLink="{{row.data.Actions.update.route}}"
+                >
+                    <nb-icon icon="pen"></nb-icon>
+                    Modifier
+                </button>
+            </td>
+        </ng-container>
     </ng-container>
 
 </table>

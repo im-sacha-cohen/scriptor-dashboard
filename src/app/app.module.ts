@@ -28,6 +28,7 @@ import { StatisticsListComponent } from './private/statistics-list/statistics-li
 import { LinkUpdateComponent } from './private/link-update/link-update.component';
 import { CategoryListComponent } from './private/category/category-list/category-list.component';
 import { TreeGridComponent } from './shared/components/tree-grid/tree-grid.component';
+import { CategoryNewComponent } from './private/category/category-new/category-new.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TreeGridComponent } from './shared/components/tree-grid/tree-grid.compo
     StatisticsListComponent,
     LinkUpdateComponent,
     CategoryListComponent,
-    TreeGridComponent
+    TreeGridComponent,
+    CategoryNewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NbDialogService, NbSortDirection, NbSortRequest, NbToastrService, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -22,8 +22,8 @@ export class CategoryListComponent implements OnInit {
 
   categories: any[] = [];
 
-  customColumn = 'name';
-  defaultColumns = [ 'slug' ];
+  customColumn = 'Nom';
+  defaultColumns = [ 'Slug', 'Actions' ];
 
   constructor(
     private queryService: QueryService,
@@ -45,20 +45,15 @@ export class CategoryListComponent implements OnInit {
       'GET',
       `/category`
     ).subscribe( resp => {
-      /*resp.forEach((element: any) => {
+      resp.forEach((element: any) => {
         this.categories.push({
-          data: { name: element.name, slug: element.slug },
+          data: { Nom: element.name, Slug: element.slug, Actions: {
+            update: {
+              route: `/category/update/${element.slug}`
+            }
+          } },
         });
-      });*/
-      this.categories = [
-        {
-          data: { name: 'Projects', slug: '1.8 MB', items: 5, kind: 'dir' },
-        },
-        {
-          data: { name: 'Projects', slug: '1.8 MB', items: 5, kind: 'dir' },
-        }
-      ];
-      console.log('cat', this.categories);
+      });
     });
   }
 

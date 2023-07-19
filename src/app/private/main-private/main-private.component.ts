@@ -29,7 +29,7 @@ export class MainPrivateComponent implements OnInit {
         {
           title: 'Catégories',
           icon: 'bookmark-outline',
-          link: '/categories',
+          link: '/category',
         }
       ]
     }
