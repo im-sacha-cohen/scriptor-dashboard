@@ -60,30 +60,6 @@
                                     placeholder="Ex: john@doe.com"
                                 >
                             </div>
-                            <div class="flex-column">
-                                <label for="domainName">Nom de domaine *</label>
-                                <input
-                                    nbInput
-                                    status="basic"
-                                    formControlName="domainName"
-                                    id="domainName"
-                                    type="domainName"
-                                    placeholder="Ex: https://Scriptor.fr"
-                                >
-                            </div>
-                        </div>
-                        <div class="flex-row space-between">
-                            <div class="flex-column">
-                                <label for="facebookPage">URL de votre page Facebook *</label>
-                                <input
-                                    nbInput
-                                    status="basic"
-                                    formControlName="facebookPage"
-                                    id="facebookPage"
-                                    type="url"
-                                    placeholder="Ex : https://facebook.com/jon-doe"
-                                >
-                            </div>
                         </div>
                         <button
                             nbButton
@@ -92,7 +68,7 @@
                             [disabled]="showButtonSpinner || this.accountForm.invalid"
                             [nbSpinner]="showButtonSpinner"
                             nbSpinnerStatus="basic"
-                            class="float-right"
+                            class="float-right yellow"
                             type="submit"
                         >
                             <nb-icon icon="save"></nb-icon>
@@ -105,7 +81,7 @@
                     <form action="">
                         <div class="flex-row">
                             <div class="flex-column">
-                                <label for="resetPassword">Modifier mon mot de passe</label>
+                                <!--<label for="resetPassword">Modifier mon mot de passe</label>
                                 <button
                                     (click)="sendResetPasswordLink()"
                                     nbButton
@@ -114,7 +90,8 @@
                                     id="resetPassword"
                                 >
                                     Envoyer un lien de réinitialisation
-                                </button>
+                                </button>-->
+                                <nb-alert status="basic">La modification de mot de passe sera bientôt disponible !</nb-alert>
                             </div>
                         </div>
                     </form>

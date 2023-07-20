@@ -1,3 +1,5 @@
+@import '../../../assets/scss/variables';
+
 .account-details {
     width: 29%;
     height: fit-content;
@@ -5,7 +7,7 @@
     .round {
         height: 60px;
         width: 60px;
-        background: #FF914D;
+        background: $yellow;
         padding: 10px;
         border-radius: 100%;
         display: flex;

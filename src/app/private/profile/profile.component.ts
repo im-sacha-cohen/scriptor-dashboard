@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit {
     ).subscribe(
       resp => {
         this.showButtonSpinner = false;
-        this.toastrService.show("Ton compte a bien été mit à jour !", "Succès", { status: 'success' });
+        this.toastrService.show("Le compte a bien été mit à jour !", "Succès", { status: 'success' });
         this.authService.setToken(resp.object.token);
         this.authService.setEmail(resp.object.token);
       },

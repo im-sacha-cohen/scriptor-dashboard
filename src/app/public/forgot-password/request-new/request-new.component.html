@@ -1,7 +1,6 @@
 <h1>Réinitialisation de mot de passe</h1>
-<nb-card>
-    <nb-card-body>
-        <form [formGroup]="formReset" (ngSubmit)="onSubmit()">
+
+        <!--<form [formGroup]="formReset" (ngSubmit)="onSubmit()">
             <div class="flex-column">
                 <label for="mail">Adresse mail</label>
                 <input nbInput status="basic" formControlName="email" type="mail" placeholder="Ex: jondoe@gmail.com">
@@ -11,7 +10,7 @@
             </nb-alert>
             <div class="flex-row space-between">
                 <a routerLink="/login">
-                    <nb-icon icon="arrow-back-outline"></nb-icon>
+                    <i class="fa-solid fa-arrow-left"></i>
                     Retour à la connexion
                 </a>
                 <button
@@ -27,6 +26,12 @@
                     Envoyer un lien de réinitialisation
                 </button>
             </div>
-        </form>
-    </nb-card-body>
-  </nb-card>
+        </form>-->
+<nb-alert status="basic">
+    La demande de mot de passe sera bientôt disponible !<br/>
+    <span>En attendant, contactez-nous à <a href="mailto:hello@chaloch.agency?subject=Problème%20de%20connexion">hello@chaloch.agency</a> si vous avez des problèmes de connexion.</span>
+</nb-alert>
+<a routerLink="/login">
+    <i class="fa-solid fa-arrow-left"></i>
+    Retour à la connexion
+</a>

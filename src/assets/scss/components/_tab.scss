@@ -1,0 +1,13 @@
+nb-tabset {
+    li {
+        &.active, &:hover {
+            a {
+                color: $blue !important;
+
+                &::before {
+                    background-color: $blue !important;
+                }
+            }
+        }
+    }
+}
