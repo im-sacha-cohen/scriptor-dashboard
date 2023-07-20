@@ -51,7 +51,7 @@ export class ArticleNewComponent implements OnInit {
     toolbarPosition: 'top',
     toolbarHiddenButtons: [
       ['fontName', 'subscript', 'superscript'],
-      ['customClasses', 'insertVideo', 'fontSize', 'toggleEditorMode', 'removeFormat']
+      ['customClasses', 'insertVideo', 'fontSize', 'removeFormat']
     ]
   };
 
